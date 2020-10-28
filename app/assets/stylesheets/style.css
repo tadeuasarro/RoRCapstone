@@ -28,7 +28,6 @@ body {
 
 .bg-dark-blue {
   background-color: #213246;
-
 }
 
 .profile-picture {
@@ -55,6 +54,6 @@ body {
 .post-input {
   width: 80%;
   border: none;
-  border-radius:  5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
   padding-left: 2%;
 }
