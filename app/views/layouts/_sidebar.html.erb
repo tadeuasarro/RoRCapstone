@@ -1,0 +1,49 @@
+<div class="col-2 bg-dark-blue">
+  <div class="position-fixed">
+    <div class="row m-0 p-0 w-100">
+        <div class="col">
+          <div class="d-flex align-items-center text-white no-link">
+            <div class="profile-picture"></div>
+            <p class="mb-0 ml-3 small">TADEU SARRO</p>
+          </div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom small">
+        <div class="col-6 text-white border-right text-center">
+          <p class="my-2">000</p>
+          <p class="my-2">Following</p>
+        </div>
+        <div class="col-6 text-white text-center">
+          <p class="my-2 ">000</p>
+          <p class="my-2">Followers</p>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col py-3">
+          <a href="/posts" class="text-light no-link"><i class="fas fa-home mr-3"></i>HOME</a>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col py-3">
+          <a href="/users" class="text-light no-link"><i class="fas fa-at mr-3"></i>CONNECT</a>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col py-3">
+          <a href="" class="text-light no-link"><i class="fas fa-hashtag mr-3"></i>DISCOVER</a>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col py-3">
+          <a href="/users/<%= session[:user_id] %>" class="text-light no-link">
+            <i class="fas fa-user mr-3"></i>PROFILE
+          </a>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col py-3">
+          <a href="" class="text-light no-link"><i class="fas fa-info-circle mr-3"></i>STATISTICS</a>
+        </div>
+      </div>
+    </div>
+  </div>

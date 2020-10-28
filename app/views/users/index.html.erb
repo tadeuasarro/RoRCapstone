@@ -1,0 +1,30 @@
+<div class="h-100 container-fluid">
+  <div class="row h-100">
+    <%= render '/layouts/sidebar' %>
+    <div class="col-10 m-0 p-0 bg-light">
+      <%= render '/layouts/navbar' %>
+      <div class="row m-0 mt-navbar">
+
+        <div class="col-9 border-right">
+          <div class="row pt-3 pl-3">
+            <% @users.each do |u| %>
+              <div class="col-6 p-0">
+                <div class="border bg-white mr-3 p-3 mb-3 rounded">
+                  <div class="d-flex justify-content-between">
+                    <%= u.full_name %>
+                    <%= follow_button(u) %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-3 p-3">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
