@@ -8,6 +8,7 @@
         <div class="col-9 border-right">
           <div class="row pt-3 pl-3">
             <% @users.each do |u| %>
+              <%= next if u.id == session[:user_id] %>
               <div class="col-6 p-0">
                 <div class="border bg-white mr-3 p-3 mb-3 rounded">
                   <div class="d-flex justify-content-between">

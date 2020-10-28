@@ -57,3 +57,15 @@ body {
   border-radius: 5px 0 0 5px;
   padding-left: 2%;
 }
+
+.cover-image {
+  background-image: url("./picture.jpeg");
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.w-16 {
+  width: 16%;
+}
