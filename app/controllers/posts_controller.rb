@@ -29,7 +29,6 @@ class PostsController < ApplicationController
   end
 
   def gather_suggestions
-    result = User.all {}
-    result -= current_user.followeds {}
+    (User.all {} - current_user.followeds {})
   end
 end
