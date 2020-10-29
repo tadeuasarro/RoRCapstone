@@ -33,7 +33,7 @@ module UsersHelper
       capture do
         link_to 'Unfollow', following_path(
           id: current_user.follower_relations.where(followed_id: user.id).ids,
-          route: user_path(user)
+          route: user_path(@user)
         ),
                 method: 'delete',
                 class: 'p-1 rounded btn-danger small no-link'
@@ -44,7 +44,7 @@ module UsersHelper
           following: {
             follower_id: current_user.id,
             followed_id: user.id,
-            route: user_path(user)
+            route: user_path(@user)
           }
         ),
                 method: 'post',
@@ -52,4 +52,5 @@ module UsersHelper
       end
     end
   end
+
 end
