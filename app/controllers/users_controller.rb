@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
+    @user = User.new
     @users = User.all
+    @users = User.where('username LIKE ?', "%#{params[:user][:username]}%") if params[:user]
   end
 
   def new
@@ -17,6 +19,10 @@ class UsersController < ApplicationController
     else
       redirect_to new_user_path, notice: 'Something went wrong, please try again!'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

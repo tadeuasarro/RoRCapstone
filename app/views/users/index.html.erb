@@ -5,21 +5,28 @@
       <%= render '/layouts/navbar' %>
       <div class="row m-0 mt-navbar">
 
-        <div class="col-9 border-right">
-          <div class="row pt-3 pl-3">
-            <% @users.each do |u| %>
-              <div class="col-6 p-0">
-                <div class="border bg-white mr-3 p-3 mb-3 rounded">
-                  <div class="d-flex justify-content-between">
-                    <%= u.full_name %>
-                    <%= follow_button(u) %>
-                  </div>
-                </div>
+        <div class="col-9 p-3 border-right">
+          <div class="p-3 bg-white border rounded">
+            <%= form_for(@user, url: users_path, method: 'get') do |u| %>
+              <p>Find other users by their username!</p>
+              <div class="rounded d-flex">
+                <%= u.text_field :username, class: 'post-input border' %>
+                <%= u.submit 'Search', class: 'post-button text-white py-2' %>
               </div>
             <% end %>
           </div>
+          <% @users.each do |u| %>
+            <%= next if u.id == session[:user_id] %>
+            <div class="px-3 py-2 mt-3 bg-white border rounded d-flex">
+              <div class="profile-picture mr-3"></div>
+              <div class="w-100 d-flex justify-content-between align-items-center">
+                <a class="no-link text-dark" href="/users/<%= u.id %>"><%= u.full_name %></a>
+                <%= follow_button(u) %>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div class="col-3 p-3">
+        <div class="col-3">
         </div>
 
       </div>

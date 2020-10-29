@@ -22,9 +22,11 @@
               <div class="d-flex align-items-center">
                 <div class="profile-picture"></div>
                 <div class="w-100 pl-3">
-                  <div class="">
-                    <span class="h5 text-dark"><%= p.user.full_name %></span>
-                    <small class="text-secondary"> at: <%= p.created_at %> </small>
+                  <div class="d-flex justify-content-between">
+                    <a href="/users/<%= p.author_id %>" class="h5 text-dark no-link">
+                      <%= p.user.full_name %>
+                    </a>
+                    <small class="text-secondary"><%= p.created_at %> </small>
                   </div>
                   <p class="text-dark mb-0"><%= p.text %></p>
                 </div>

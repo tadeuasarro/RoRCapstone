@@ -1,0 +1,79 @@
+<div class="h-100 container-fluid">
+  <div class="row h-100">
+    <%= render '/layouts/sidebar' %>
+    <div class="col-10 m-0 p-0 bg-light">
+      <%= render '/layouts/navbar' %>
+      <div class="row m-0 mt-navbar">
+
+        <div class="col-9 border-right px-0">
+          <div class="cover-image mb-0"></div>
+          <div class="px-3 mt-3">
+            <div class="p-3 mt-0 border rounded bg-white">
+              <p class="h4 text-dark">Posts from <%= @user.full_name %></p>
+              <% @user.posts.each do |p| %>
+                <div class="d-flex align-items-center">
+                  <div class="profile-picture"></div>
+                  <div class="w-100 pl-3">
+                    <div class="d-flex justify-content-between">
+                      <span class="h5 text-dark"><%= p.user.full_name %></span>
+                      <small class="text-secondary"><%= p.created_at %> </small>
+                    </div>
+                    <p class="text-dark mb-0"><%= p.text %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3 p-0">
+          <div class="pt-3 pb-1">
+
+            <div class="text-center">
+              <div class="d-flex justify-content-center align-items-center ">
+                <div class="mr-3">
+                  <%= rightsidebar_button(@user) %>
+                </div>
+                <div class="profile-picture"></div>
+              </div>
+              <p class="text-dark"><%= @user.full_name %></p>
+            </div>
+
+            <div class="d-flex border-top border-bottom text-dark small text-center">
+              <div class="col py-2">
+                <p class="mb-0"><%= @user.posts.count %></p>
+                <p class="mb-0">Posts</p>
+              </div>
+              <div class="col py-2 border-left">
+                <p class="mb-0"><%= @user.followeds.count - 1 %></p>
+                <p class="mb-0">Following</p>
+              </div>
+              <div class="col py-2 border-left">
+                <p class="mb-0"><%= @user.followers.count - 1 %></p>
+                <p class="mb-0">Followers</p>
+              </div>
+            </div>
+
+            <div class="p-3">
+              <p class="h4 text-dark border-bottom pb-3">Followers:</p>
+              <% @user.followers.each do |u|%>
+                <%= next if u.id == @user.id || u.id == session[:user_id] %>
+                <div class="border-bottom pb-2 d-flex justify-content-between">
+                  <div class="profile-picture"></div>
+                  <div class="d-flex flex-column justify-content-center align-items-center w-75">
+                    <a href="/users/<%= u.id %>" class='mb-2 text-dark no-link'>
+                      <%= u.full_name %>
+                    </a>
+                    <%= rightsidebar_button(u) %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
