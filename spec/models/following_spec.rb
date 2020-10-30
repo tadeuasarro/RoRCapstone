@@ -10,11 +10,11 @@ RSpec.describe Following, type: :model do
       expect(subject).to be_valid
     end
     it "is invalid, because the follower doesn't exist" do
-      subject.followed_id = 3
+      subject.followed_id = -1
       expect(subject).not_to be_valid
     end
     it "is invalid, because the followed doesn't exist" do
-      subject.follower_id = 3
+      subject.follower_id = -1
       expect(subject).not_to be_valid
     end
   end

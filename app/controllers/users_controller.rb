@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: %i[new delete create]
+  before_action :require_logout, only: %i[new create]
   def index
     @user = User.new
     @users = User.all
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       create_following(@user)
       session[:user_id] = @user.id
-      redirect_to posts_path, notice: @user.photo.to_s
+      redirect_to posts_path, notice: 'Account created successfully, welcome!'
     else
       redirect_to new_user_path, notice: 'Something went wrong, please try again!'
     end
@@ -34,16 +36,20 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if params[:user][:photo]
-      @user.photo = params[:user][:photo]
-    elsif params[:user][:cover_image]
-      @user.cover_image = params[:user][:cover_image]
-    end
+    begin
+      if params[:user][:photo]
+        @user.photo = params[:user][:photo]
+      elsif params[:user][:cover_image]
+        @user.cover_image = params[:user][:cover_image]
+      end
 
-    if @user.save
-      redirect_to edit_user_path(params[:id]), notice: 'The picture has been uploaded successfully!'
-    else
-      redirect_to edit_user_path(params[:id]), notice: 'Something went wrong, please try again!'
+      if @user.save
+        redirect_to edit_user_path(params[:id]), notice: 'The picture has been uploaded successfully!'
+      else
+        redirect_to edit_user_path(params[:id]), notice: 'Something went wrong, please try again!'
+      end
+    rescue StandardError
+      redirect_to edit_user_path(params[:id]), notice: 'Please, select a valid file!'
     end
   end
 

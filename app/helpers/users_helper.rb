@@ -10,7 +10,8 @@ module UsersHelper
           route: path
         ),
                 method: 'delete',
-                class: 'follow-button'
+                class: 'follow-button',
+                id: 'follow-button'
       end
     else
       icon = content_tag(:i, nil, class: 'fas fa-plus')
@@ -23,7 +24,8 @@ module UsersHelper
           }
         ),
                 method: 'post',
-                class: 'follow-button'
+                class: 'follow-button',
+                id: 'follow-button'
       end
     end
   end
