@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.login-button {
+  background-color: #53a8e9;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  padding: 7px;
+  color: #fff;
+}
+
+.login-button:hover {
+  background-color: #1da0f0;
+}
+
+.bg-blue {
+  background-color: #53a8e9;
+}
+
+.bg-dark-blue {
+  background-color: #213246;
+}
+
+.profile-picture {
+  height: 65px;
+  width: 65px;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.no-link:hover {
+  text-decoration: none;
+}
+
+.post-button {
+  width: 20%;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #53a8e9;
+}
+
+.post-input {
+  width: 80%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding-left: 2%;
+}
+
+.cover-image {
+  height: 197px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.w-16 {
+  width: 16%;
+}
+
+.follow-button {
+  border-radius: 50%;
+  padding: 6px 12px;
+  border: solid 2px #cdcec0;
+  color: #cdcec0;
+}
+
+.follow-button:hover {
+  color: #cdcec0;
+}
