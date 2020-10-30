@@ -15,13 +15,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.photo = "./assets/images/user.png"
-    @user.cover_image = "./assets/images/user.png"
+    @user.photo = './assets/images/user.png'
+    @user.cover_image = './assets/images/user.png'
 
     if @user.save
       create_following(@user)
       session[:user_id] = @user.id
-      redirect_to posts_path, notice: "#{@user.photo}"
+      redirect_to posts_path, notice: @user.photo.to_s
     else
       redirect_to new_user_path, notice: 'Something went wrong, please try again!'
     end
@@ -41,11 +41,10 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      redirect_to edit_user_path(params[:id]), notice: "The picture has been uploaded successfully!"
+      redirect_to edit_user_path(params[:id]), notice: 'The picture has been uploaded successfully!'
     else
-      redirect_to edit_user_path(params[:id]), notice: "Something went wrong, please try again!"
+      redirect_to edit_user_path(params[:id]), notice: 'Something went wrong, please try again!'
     end
-
   end
 
   private
