@@ -1,4 +1,5 @@
 class FollowingsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
   def create
     following = Following.new(following_params)
 

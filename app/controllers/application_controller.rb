@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logout
-    redirect_to root_path if session[:user_id]
+    redirect_to root_path, notice: 'You must logout first!' if session[:user_id]
   end
 
   def current_user
