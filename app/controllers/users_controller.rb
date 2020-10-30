@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :delete, :create]
-  before_action :require_logout, only: [:new, :create]
+  before_action :require_login, except: %i[new delete create]
+  before_action :require_logout, only: %i[new create]
   def index
     @user = User.new
     @users = User.all
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
       else
         redirect_to edit_user_path(params[:id]), notice: 'Something went wrong, please try again!'
       end
-    rescue
+    rescue StandardError
       redirect_to edit_user_path(params[:id]), notice: 'Please, select a valid file!'
     end
   end

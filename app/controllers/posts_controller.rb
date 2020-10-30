@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, only: [:index, :new, :create]
+  before_action :require_login, only: %i[index new create]
 
   def index
     @post = Post.new

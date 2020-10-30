@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Session Features', type: :feature do
-
   before :each do
-    user1 = User.create(username: 'Tadeu', full_name: 'Tadeu Sarro')
   end
 
   scenario 'require login' do
@@ -12,8 +10,9 @@ RSpec.describe 'Session Features', type: :feature do
   end
 
   scenario 'require logout' do
+    user1 = User.create(username: 'Tadeu', full_name: 'Tadeu Sarro')
     visit new_session_path
-    fill_in 'user_username', with: 'Tadeu'
+    fill_in 'user_username', with: user1.username
     click_button 'Login'
 
     visit new_session_path
@@ -28,8 +27,9 @@ RSpec.describe 'Session Features', type: :feature do
   end
 
   scenario 'login with a valid user' do
+    user1 = User.create(username: 'Tadeu', full_name: 'Tadeu Sarro')
     visit new_session_path
-    fill_in 'user_username', with: 'Tadeu'
+    fill_in 'user_username', with: user1.username
     click_button 'Login'
     expect(page).to have_content('Logged in!')
   end
@@ -51,9 +51,10 @@ RSpec.describe 'Session Features', type: :feature do
   end
 
   scenario 'try and fail to create a new user, repeated information' do
+    user1 = User.create(username: 'Tadeu', full_name: 'Tadeu Sarro')
     visit new_user_path
-    fill_in 'user_username', with: 'Tadeu'
-    fill_in 'user_full_name', with: 'Tadeu Sarro'
+    fill_in 'user_username', with: user1.username
+    fill_in 'user_full_name', with: user1.full_name
     click_button 'Register'
     expect(page).to have_content('Something went wrong, please try again!')
   end
@@ -65,5 +66,4 @@ RSpec.describe 'Session Features', type: :feature do
     click_button 'Register'
     expect(page).to have_content('Account created successfully, welcome!')
   end
-
 end

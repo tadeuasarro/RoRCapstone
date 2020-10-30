@@ -25,7 +25,7 @@ module UsersHelper
         ),
                 method: 'post',
                 class: 'follow-button',
-                  id: 'follow-button'
+                id: 'follow-button'
       end
     end
   end
