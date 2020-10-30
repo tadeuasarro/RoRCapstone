@@ -5,7 +5,7 @@
       <%= render '/layouts/navbar' %>
       <div class="row m-0 mt-navbar">
 
-        <div class="col-9 border-right">
+        <div class="col-9 pr-3">
           <%= form_for(@post, url: posts_path, method: 'post') do |f| %>
             <div class="form-group mt-3 p-3 bg-white rounded border">
               <div class="">
@@ -18,9 +18,10 @@
             </div>
           <% end %>
           <div class="border rounded bg-white p-3 mb-3">
+            <p class="h4 text-dark">Most recent posts:</p>
             <% @posts.each do |p| %>
               <div class="d-flex align-items-center">
-                <div class="profile-picture"></div>
+                <%= profile_picture(p.user) %>
                 <div class="w-100 pl-3">
                   <div class="d-flex justify-content-between">
                     <a href="/users/<%= p.author_id %>" class="h5 text-dark no-link">
@@ -34,14 +35,19 @@
             <% end %>
           </div>
         </div>
-        <div class="col-3 p-3">
-          <div class="p-3 border rounded bg-white">
-            <p class="h4 py-1">Who to follow</p>
+        <div class="col-3 p-0">
+          <div class="rounded">
+            <p class="h4 p-3 border-bottom mb-0">Who to follow</p>
             <% @users.each do |u| %>
-              <div class="py-2 d-flex justify-content-between">
-                <%= u.full_name %>
-                <%= suggestions_button(u) %>
-              </div>
+                <div class="border-bottom d-flex justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center w-100 pr-3">
+                    <a href="/users/<%= u.id %>" class='text-dark justify-content-center align-items-center no-link d-flex'>
+                      <%= profile_picture(u) %>
+                      <%= u.full_name %>
+                    </a>
+                    <%= follow_button(u, posts_path) %>
+                  </div>
+                </div>
             <% end %>
           </div>
         </div>

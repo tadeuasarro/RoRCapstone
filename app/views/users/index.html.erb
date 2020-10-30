@@ -5,26 +5,30 @@
       <%= render '/layouts/navbar' %>
       <div class="row m-0 mt-navbar">
 
-        <div class="col-9 p-3 border-right">
-          <div class="p-3 bg-white border rounded">
-            <%= form_for(@user, url: users_path, method: 'get') do |u| %>
-              <p>Find other users by their username!</p>
-              <div class="rounded d-flex">
-                <%= u.text_field :username, class: 'post-input border' %>
-                <%= u.submit 'Search', class: 'post-button text-white py-2' %>
+        <div class="col-9">
+          <div class="my-3">
+            <div class="p-3 bg-white border rounded">
+              <%= form_for(@user, url: users_path, method: 'get') do |u| %>
+                <p>Find other users by their name!</p>
+                <div class="rounded d-flex">
+                  <%= u.text_field :full_name, class: 'post-input border' %>
+                  <%= u.submit 'Search', class: 'post-button text-white py-2' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="p-0">
+            <% @users.each do |u| %>
+              <%= next if u.id == session[:user_id] %>
+              <div class="px-3 py-2 mb-3 bg-white border rounded d-flex">
+                <%= profile_picture(u) %>
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                  <a class="no-link text-dark" href="/users/<%= u.id %>"><%= u.full_name %></a>
+                  <%= follow_button(u, users_path) %>
+                </div>
               </div>
             <% end %>
           </div>
-          <% @users.each do |u| %>
-            <%= next if u.id == session[:user_id] %>
-            <div class="px-3 py-2 mt-3 bg-white border rounded d-flex">
-              <div class="profile-picture mr-3"></div>
-              <div class="w-100 d-flex justify-content-between align-items-center">
-                <a class="no-link text-dark" href="/users/<%= u.id %>"><%= u.full_name %></a>
-                <%= follow_button(u) %>
-              </div>
-            </div>
-          <% end %>
         </div>
         <div class="col-3">
         </div>

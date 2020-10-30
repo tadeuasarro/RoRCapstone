@@ -5,14 +5,14 @@
       <%= render '/layouts/navbar' %>
       <div class="row m-0 mt-navbar">
 
-        <div class="col-9 border-right px-0">
-          <div class="cover-image mb-0"></div>
+        <div class="col-9 px-0">
+          <%= cover_image(@user) %>
           <div class="px-3 mt-3">
             <div class="p-3 mt-0 border rounded bg-white">
               <p class="h4 text-dark">Posts from <%= @user.full_name %></p>
-              <% @user.posts.each do |p| %>
+              <% @user.posts.order('created_at DESC').each do |p| %>
                 <div class="d-flex align-items-center">
-                  <div class="profile-picture"></div>
+                  <%= profile_picture(@user) %>
                   <div class="w-100 pl-3">
                     <div class="d-flex justify-content-between">
                       <span class="h5 text-dark"><%= p.user.full_name %></span>
@@ -31,10 +31,10 @@
 
             <div class="text-center">
               <div class="d-flex justify-content-center align-items-center ">
-                <div class="mr-3">
-                  <%= rightsidebar_button(@user) %>
+                <div class="mr-3 d-flex">
+                  <%= follow_button(@user, user_path(@user)) %>
                 </div>
-                <div class="profile-picture"></div>
+                <%= profile_picture(@user) %>
               </div>
               <p class="text-dark"><%= @user.full_name %></p>
             </div>
@@ -54,17 +54,17 @@
               </div>
             </div>
 
-            <div class="p-3">
-              <p class="h4 text-dark border-bottom pb-3">Followers:</p>
+            <div class="">
+              <p class="h4 text-dark border-bottom mb-0 p-3">Followers:</p>
               <% @user.followers.each do |u|%>
                 <%= next if u.id == @user.id || u.id == session[:user_id] %>
-                <div class="border-bottom pb-2 d-flex justify-content-between">
-                  <div class="profile-picture"></div>
-                  <div class="d-flex flex-column justify-content-center align-items-center w-75">
-                    <a href="/users/<%= u.id %>" class='mb-2 text-dark no-link'>
+                <div class="border-bottom d-flex justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center w-100 pr-3">
+                    <a href="/users/<%= u.id %>" class='text-dark justify-content-center align-items-center no-link d-flex'>
+                      <%= profile_picture(u) %>
                       <%= u.full_name %>
                     </a>
-                    <%= rightsidebar_button(u) %>
+                    <%= follow_button(u, user_path(@user)) %>
                   </div>
                 </div>
               <% end %>

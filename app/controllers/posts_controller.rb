@@ -24,11 +24,10 @@ class PostsController < ApplicationController
   end
 
   def gather_posts
-    result = Post.where(user: current_user.followeds).to_a
-    result.sort! { |x, y| y.created_at <=> x.created_at }
+    Post.where(user: current_user.followeds).order('created_at DESC').to_a
   end
 
   def gather_suggestions
-    (User.all {} - current_user.followeds {})
+    (User.all.order('created_at DESC') {} - current_user.followeds {})
   end
 end

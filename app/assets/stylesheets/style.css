@@ -31,7 +31,6 @@ body {
 }
 
 .profile-picture {
-  background-image: url("./picture.jpeg");
   height: 65px;
   width: 65px;
   border-radius: 5px;
@@ -59,7 +58,6 @@ body {
 }
 
 .cover-image {
-  background-image: url("./picture.jpeg");
   height: 197px;
   width: 100%;
   background-size: cover;
@@ -68,4 +66,15 @@ body {
 
 .w-16 {
   width: 16%;
+}
+
+.follow-button {
+  border-radius: 50%;
+  padding: 6px 12px;
+  border: solid 2px #cdcec0;
+  color: #cdcec0;
+}
+
+.follow-button:hover {
+  color: #cdcec0;
 }

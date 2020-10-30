@@ -2,8 +2,8 @@
 
   <div class="position-fixed w-16">
     <div class="d-flex p-2 align-items-center text-white no-link">
-      <div class="profile-picture m-1"></div>
-      <p class="mb-0 ml-3 small"><%= current_user.full_name %></p>
+      <%= profile_picture(current_user) %>
+      <p class="mb-0 small"><%= current_user.full_name %></p>
     </div>
 
     <div class="border-top border-bottom small d-flex p-0 row">
@@ -33,10 +33,9 @@
       </a>
     </div>
     <div class="row small px-3">
-      <a href="" class="text-light no-link col py-3">
-        <i class="fas fa-info-circle mr-3"></i>STATISTICS
+      <a href="/users/<%= session[:user_id] %>/edit" class="text-light no-link col py-3">
+        <i class="fas fa-images mr-3"></i></i>PICTURES
       </a>
     </div>
-
   </div>
 </div>
