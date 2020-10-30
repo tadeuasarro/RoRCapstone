@@ -28,14 +28,14 @@ module ApplicationHelper
       content_tag(
         :div,
         nil,
-        class: 'profile-picture mr-3',
+        class: 'profile-picture mx-3',
         style: "background-image: url('#{user.photo}');"
       )
     else
       content_tag(
         :div,
         nil,
-        class: 'profile-picture mr-3',
+        class: 'profile-picture mx-3',
         style: "background-image: url('http://res.cloudinary.com/dw7kyau11/image/upload/v1604074097/andjdrop1uryj09ka5y3.png');"
       )
     end

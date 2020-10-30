@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     @users = User.all
-    @users = User.where('username LIKE ?', "%#{params[:user][:username]}%") if params[:user]
+    @users = User.where('full_name LIKE ?', "%#{params[:user][:full_name]}%") if params[:user]
   end
 
   def show

@@ -10,9 +10,9 @@
           <div class="px-3 mt-3">
             <div class="p-3 mt-0 border rounded bg-white">
               <p class="h4 text-dark">Posts from <%= @user.full_name %></p>
-              <% @user.posts.each do |p| %>
+              <% @user.posts.order('created_at DESC').each do |p| %>
                 <div class="d-flex align-items-center">
-                  <div class="profile-picture"></div>
+                  <%= profile_picture(@user) %>
                   <div class="w-100 pl-3">
                     <div class="d-flex justify-content-between">
                       <span class="h5 text-dark"><%= p.user.full_name %></span>
@@ -58,7 +58,7 @@
               <p class="h4 text-dark border-bottom mb-0 p-3">Followers:</p>
               <% @user.followers.each do |u|%>
                 <%= next if u.id == @user.id || u.id == session[:user_id] %>
-                <div class="border-bottom pl-3 d-flex justify-content-between">
+                <div class="border-bottom d-flex justify-content-between">
                   <div class="d-flex justify-content-between align-items-center w-100 pr-3">
                     <a href="/users/<%= u.id %>" class='text-dark justify-content-center align-items-center no-link d-flex'>
                       <%= profile_picture(u) %>
