@@ -18,10 +18,10 @@
           <% @users.each do |u| %>
             <%= next if u.id == session[:user_id] %>
             <div class="px-3 py-2 mt-3 bg-white border rounded d-flex">
-              <div class="profile-picture mr-3"></div>
+              <%= profile_picture(u) %>
               <div class="w-100 d-flex justify-content-between align-items-center">
                 <a class="no-link text-dark" href="/users/<%= u.id %>"><%= u.full_name %></a>
-                <%= follow_button(u) %>
+                <%= follow_button(u, users_path) %>
               </div>
             </div>
           <% end %>

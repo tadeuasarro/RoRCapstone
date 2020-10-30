@@ -1,0 +1,32 @@
+<div class="h-100 container-fluid">
+  <div class="row h-100">
+    <%= render '/layouts/sidebar' %>
+    <div class="col-10 m-0 p-0 bg-light">
+      <%= render '/layouts/navbar' %>
+      <div class="row m-0 mt-navbar">
+
+        <div class="col-9 p-3">
+          <div class="p-3 border rounded bg-white ">
+            <p class="h4 text-dark">Update you user photo!</p>
+            <%= form_for(@user, action: 'update') do |u| %>
+              <div class="d-flex">
+                <%= u.file_field :photo, class: "post-input border py-2" %>
+                <%= u.submit 'Upload photo', class: 'post-button py-2 text-white' %>
+              </div>
+            <% end %>
+          </div>
+          <div class="p-3 border rounded bg-white mt-3">
+            <p class="h4 text-dark">Update you cover image!</p>
+            <%= form_for(@user, action: 'update') do |u| %>
+              <div class="d-flex">
+                <%= u.file_field :cover_image, class: "post-input border py-2" %>
+                <%= u.submit 'Upload image', class: 'post-button py-2 text-white' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

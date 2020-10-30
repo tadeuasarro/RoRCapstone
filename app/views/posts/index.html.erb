@@ -40,7 +40,7 @@
             <% @users.each do |u| %>
               <div class="py-2 d-flex justify-content-between">
                 <%= u.full_name %>
-                <%= suggestions_button(u) %>
+                <%= follow_button(u, posts_path) %>
               </div>
             <% end %>
           </div>
