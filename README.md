@@ -6,7 +6,7 @@
 
 #### Screenshot
 
-![screenshot](/app/assets/images/screenshot.png)
+![screenshot](app/assets/images/screenshot.png)
 
 #### Livedemo
 - [Heroku](https://tranquil-atoll-76624.herokuapp.com/)
