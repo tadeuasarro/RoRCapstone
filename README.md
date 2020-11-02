@@ -1,8 +1,15 @@
 # Ruby Capstone
 
-#### 
+#### Hello there! This is my Twitter Redesign project. The purpose of this project is to create a MVP of [this](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details) Twitter redesign.
 
-#### 
+#### Features
+- Create an account and login with `username`
+- Follow other users;
+- Upload profile photo and cover image;
+- See someone's profile, with:
+- ###### All their posts;
+- ###### Information about the number of posts, followers and following;
+- Extra: Filter Users index, by the user `full_name`.
 
 #### Screenshot
 
@@ -10,10 +17,6 @@
 
 #### Livedemo
 - [Heroku](https://tranquil-atoll-76624.herokuapp.com/)
-
-
-#### Features:
--
 
 ## Built With
 
