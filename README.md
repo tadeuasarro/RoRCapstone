@@ -100,13 +100,14 @@ Give a star if you like this project!
 
 ## Acknowledgments
 
-- Date
-- Nokogiri
-- Faraday
-- Rubocop
-- Rspec
+- Carrierwave
+- Cloudinary
+- Database Cleaner
 - Microverse
-
+- Rails Controller Testing
+- Rubocop
+- RSpec Rails
+- Shoulda Matchers
 
 ## 📝 License
 
