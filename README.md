@@ -103,11 +103,13 @@ Give a star if you like this project!
 - Carrierwave
 - Cloudinary
 - Database Cleaner
+- Gregoire Vella
 - Microverse
 - Rails Controller Testing
 - Rubocop
 - RSpec Rails
 - Shoulda Matchers
+
 
 ## 📝 License
 
