@@ -7,8 +7,8 @@
 - Follow other users;
 - Upload profile photo and cover image;
 - See someone's profile, with:
-- ###### All their posts;
-- ###### Information about the number of posts, followers and following;
+- All their posts;
+- Information about the number of posts, followers and following;
 - Extra: Filter Users index, by the user `full_name`.
 
 #### Screenshot
