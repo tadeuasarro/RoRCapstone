@@ -6,7 +6,8 @@ class FollowingsController < ApplicationController
     if following.save
       redirect_to params[:following][:route], notice: "You're following that person!"
     else
-      redirect_to params[:following][:route], notice: "#{@user.errors.first.first.capitalize} #{@user.errors.first.last}."
+      message = @user.errors.first
+      redirect_to params[:following][:route], notice: "#{message.first.capitalize} #{message.last}."
     end
   end
 
