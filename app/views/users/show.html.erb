@@ -8,21 +8,12 @@
         <div class="col-9 px-0">
           <%= cover_image(@user) %>
           <div class="px-3 mt-3">
+
             <div class="p-3 mt-0 border rounded bg-white">
               <p class="h4 text-dark">Posts from <%= @user.full_name %></p>
-              <% @user.posts.order('created_at DESC').each do |p| %>
-                <div class="d-flex align-items-center">
-                  <%= profile_picture(@user) %>
-                  <div class="w-100 pl-3">
-                    <div class="d-flex justify-content-between">
-                      <span class="h5 text-dark"><%= p.user.full_name %></span>
-                      <small class="text-secondary"><%= p.created_at %> </small>
-                    </div>
-                    <p class="text-dark mb-0"><%= p.text %></p>
-                  </div>
-                </div>
-              <% end %>
+              <%= render :partial => "/layouts/posts", locals: {posts: @posts} %>
             </div>
+
           </div>
         </div>
 

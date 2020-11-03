@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: 'Post created!'
     else
-      redirect_to root_path, notice: 'Something went wrong, please try again!'
+      redirect_to root_path, notice: "#{@post.errors.first.first.capitalize} #{@post.errors.first.last}."
     end
   end
 
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def gather_posts
-    Post.where(user: current_user.followeds).order('created_at DESC').to_a
+    Post.where(user: current_user.followeds).includes([:user]).order('created_at DESC').to_a
   end
 
   def gather_suggestions
