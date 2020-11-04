@@ -6,7 +6,7 @@ RSpec.describe 'Following Features', type: :feature do
     user2 = User.create(id: 2, username: 'Maria', full_name: 'Maria Sarro')
 
     visit new_session_path
-    fill_in 'user_username', with: 'Tadeu'
+    fill_in 'user_username', with: user1.username
     click_button 'Login'
 
     visit user_path(id: user2.id)

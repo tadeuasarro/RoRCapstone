@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'User Features', type: :feature do
-  before :each do
-    user1 = User.create(id: 1, username: 'Tadeu', full_name: 'Tadeu Sarro')
-  end
-
   scenario 'Fail to update an photo' do
+    user1 = User.create(id: 1, username: 'Tadeu', full_name: 'Tadeu Sarro')
     visit new_session_path
-    fill_in 'user_username', with: 'Tadeu'
+    fill_in 'user_username', with: user1.username
     click_button 'Login'
 
     visit edit_user_path(id: 1)
@@ -17,8 +14,9 @@ RSpec.describe 'User Features', type: :feature do
   end
 
   scenario 'Fail to update an image' do
+    user1 = User.create(id: 1, username: 'Tadeu', full_name: 'Tadeu Sarro')
     visit new_session_path
-    fill_in 'user_username', with: 'Tadeu'
+    fill_in 'user_username', with: user1.username
     click_button 'Login'
 
     visit edit_user_path(id: 1)
