@@ -16,7 +16,7 @@
 ![screenshot](app/assets/images/screenshot.png)
 
 #### Livedemo
-- [Heroku](https://tranquil-atoll-76624.herokuapp.com/)
+- [Heroku](https://obscure-bastion-64795.herokuapp.com/)
 
 ## Built With
 
