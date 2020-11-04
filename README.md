@@ -13,7 +13,7 @@
 
 #### Screenshot
 
-![screenshot](app/assets/images/screenshot.pn)
+![screenshot](app/assets/images/screenshot.png)
 
 #### Livedemo
 - [Heroku](https://damp-temple-33000.herokuapp.com/)
